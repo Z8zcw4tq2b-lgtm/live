@@ -63,6 +63,91 @@
             z-index: 2;
         }
 
+        .marquee-wrap {
+            background: var(--surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 0.5px solid var(--border);
+            border-radius: var(--radius);
+            padding: 10px 0;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 20;
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+            padding: 0 12px;
+        }
+
+        .marquee-link {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+            color: #a5b4fc;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .marquee-link:hover {
+            color: #c7d2fe;
+        }
+
+        .marquee-link span {
+            display: inline-block;
+            padding-right: 50px;
+        }
+
+        .marquee-link .badge {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-left: 8px;
+            color: #ffffff;
+            transition: opacity 0.2s;
+            box-shadow: 0 2px 12px rgba(99, 102, 241, 0.4);
+        }
+
+        .marquee-link .badge:hover {
+            opacity: 0.85;
+        }
+
+        [data-theme="light"] .marquee-link {
+            color: #4f46e5;
+        }
+
+        [data-theme="light"] .marquee-link:hover {
+            color: #4338ca;
+        }
+
+        [data-theme="light"] .marquee-link .badge {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            box-shadow: 0 2px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        @keyframes marquee {
+            0%   { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        @media (max-width: 640px) {
+            .marquee-content { font-size: 0.75rem; gap: 6px; }
+            .marquee-link .badge { padding: 2px 12px; font-size: 0.68rem; }
+        }
+
         .top-bar {
             display: flex;
             justify-content: flex-end;
@@ -629,6 +714,25 @@
 <body>
 
 <div class="app">
+    <div class="marquee-wrap">
+        <div class="marquee-content">
+            <span style="color:#818cf8;font-weight:700;">⚡</span>
+            <a href="https://789.st/zOo5vlX" target="_blank" rel="noopener noreferrer" class="marquee-link">
+                <span>
+                    🚀 月付2块钱1000G机场 · 不限速 · 不限设备 · 不限地区 · 全网最低价
+                    <span class="badge">点击购买 ➜</span>
+                    <span style="opacity:0.25; margin:0 14px;">│</span>
+                    🚀 月付2块钱1000G机场 · 不限速 · 不限设备 · 不限地区 · 全网最低价
+                    <span class="badge">点击购买 ➜</span>
+                    <span style="opacity:0.25; margin:0 14px;">│</span>
+                    🚀 月付2块钱1000G机场 · 不限速 · 不限设备 · 不限地区 · 全网最低价
+                    <span class="badge">点击购买 ➜</span>
+                </span>
+            </a>
+            <span style="color:#818cf8;font-weight:700;">🔥</span>
+        </div>
+    </div>
+
     <div class="top-bar">
         <div class="pill" id="themeToggleBtn">
             <span id="themeIcon">🌙</span>
